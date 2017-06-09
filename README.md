@@ -36,15 +36,17 @@ The local zoo is a mess due to mismanagement.  Luckily, they have me to help by 
 
 ## Installation
 
-* $```git clone```
-* $```cd zoolander```
-* $```npm install```
-* $```bower install```
+* (using OSX terminal, or Gitbash on Windows)
+* $`git clone`
+* $`cd zoolander`
+* $`npm install`
+* $`bower install`
 
 ### Build & Run
 
-* ```gulp build```
+* `gulp build`
 * `gulp serve`
+* a browser window should open showing the app, otherwise...
 * Point your browser to [http://localhost:3000](http://localhost:3000).
 
 ## Known Bugs
