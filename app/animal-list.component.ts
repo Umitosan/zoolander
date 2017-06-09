@@ -6,17 +6,20 @@ import { Animal } from './animal.model';
   selector: 'animal-list',
   template: `
     <div class="row">
-      <div  *ngFor="let loopedAnimal of childAnimalList" >
-        <div class="col-sm-4" >
-        <h5>Species: {{loopedAnimal.species}}</h5>
-          <h5>Name: {{loopedAnimal.name}}</h5>
-          <h5>Age: {{loopedAnimal.age}}</h5>
-          <h5>Diet: {{loopedAnimal.diet}}</h5>
-          <h5>Location: {{loopedAnimal.location}}</h5>
-          <h5>Caretakers required: {{loopedAnimal.caretakers}}</h5>
-          <h5>Sex: {{loopedAnimal.sex}}</h5>
-          <h5>Likes: {{loopedAnimal.likes}}</h5>
-          <h5>Dislikes: {{loopedAnimal.dislikes}}</h5>
+      <div  *ngFor="let currentAnimal of childAnimalList">
+        <div class="col col-sm-3" >
+          <h5><b>Species:</b>  {{currentAnimal.species}}</h5>
+          <h5><b>Name:</b> {{currentAnimal.name}}</h5>
+          <h5><b>Age:</b> {{currentAnimal.age}}</h5>
+          <h5><b>Diet:</b> {{currentAnimal.diet}}</h5>
+          <h5><b>Location:</b> {{currentAnimal.location}}</h5>
+          <h5><b>Caretakers required:</b> {{currentAnimal.caretakers}}</h5>
+          <h5><b>Sex:</b> {{currentAnimal.sex}}</h5>
+          <h5><b>Likes:</b> {{currentAnimal.likes}}</h5>
+          <h5><b>Dislikes:</b> {{currentAnimal.dislikes}}</h5>
+          <div id="animalListButtons">
+            <button class="btn btn-info btn-sm" (click)="editButtonHasBeenClicked(currentAnimal)">Edit Animal</button>
+          </div>
         </div>
       </div>
     </div>
@@ -26,5 +29,11 @@ import { Animal } from './animal.model';
 
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
+  @Output() clickSender1 = new EventEmitter();
+
+  editButtonHasBeenClicked(animalToEdit: Animal) {
+    this.clickSender1.emit(animalToEdit);
+    console.log("edit animal clicked");
+  }
 
 }

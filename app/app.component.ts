@@ -1,15 +1,20 @@
 import { Component, Input } from '@angular/core';
 import { Animal } from './animal.model';
 
-@Component({  // 'decorator'
+@Component({
   selector: 'app-root',
   template: `
   <div class="container">
     <h4> (main app.component.ts) </h4>
-
+    <hr>
     <div class="row">
       <h4> (animal-list.component.ts) </h4>
-      <animal-list [childAnimalList]="masterAnimalList"></animal-list>
+      <animal-list [childAnimalList]="masterAnimalList" (clickSender1)="editAnimal($event)"></animal-list>
+    </div>
+    <hr>
+    <div class="row">
+      <h4> (edit-animal.component.ts) </h4>
+      <edit-animal [childSelectedAnimal]="selectedAnimal" (doneEditingButtonClickedSender)="finishedEditing()"></edit-animal>
     </div>
   </div>
   `
@@ -24,5 +29,14 @@ export class AppComponent {
                                  new Animal("Northwest Black Tailed Deer", "Tinkerbell", 8, "Herbivore", "Northern Trail", 2, "Female", "Delicate roots and leaves", "Loud Noises")
                                ];
   selectedAnimal: null;
+
+  editAnimal(clickedAnimal) {
+    this.selectedAnimal = clickedAnimal;
+  }
+
+  finishedEditing() {
+    this.selectedAnimal = null;
+  }
+
 
 }
