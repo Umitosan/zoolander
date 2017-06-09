@@ -11,10 +11,13 @@ import { Animal } from './animal.model';
         <option value="allAnimals" selected="selected">All logged animals</option>
         <option value="youngAnimals">Young animals</option>
         <option value="matureAnimals">Mature animals</option>
+        <option value="omnivores">Omnivores</option>
+        <option value="herbivores">Herbivores</option>
+        <option value="carnivores">Carnivores</option>
       </select>
       <br>
       <br>
-      <div *ngFor="let currentAnimal of childAnimalList | animals:filterByAge" >
+      <div *ngFor="let currentAnimal of childAnimalList | animals:desiredFilter" >
         <div class="col col-sm-3" >
           <h5><b>Species:</b>  {{currentAnimal.species}}</h5>
           <h5><b>Name:</b> {{currentAnimal.name}}</h5>
@@ -39,7 +42,7 @@ export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender1 = new EventEmitter();
 
-  filterByAge: string = "allAnimals";
+  desiredFilter: string = "allAnimals";
 
   editButtonHasBeenClicked(animalToEdit: Animal) {
     this.clickSender1.emit(animalToEdit);
@@ -47,7 +50,7 @@ export class AnimalListComponent {
   }
 
   onChange(dropdownOption) {
-    this.filterByAge = dropdownOption;
+    this.desiredFilter = dropdownOption;
   }
 
 }
