@@ -6,6 +6,10 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
     <h4> (main app.component.ts) </h4>
+    <div class="row">
+      <button class="btn btn-info btn-sm" (click)="showNewAnimalForm()">New animal</button>
+      <new-animal [newAnimalFormClicked]="newAnimalClicked" (newAnimalSender)="addAnimal($event)" (doneWithNewAnimalFormClickedSender)="hideNewAnimalForm($event)"></new-animal>
+    </div>
     <hr>
     <div class="row">
       <h4> (animal-list.component.ts) </h4>
@@ -29,6 +33,7 @@ export class AppComponent {
                                  new Animal("Northwest Black Tailed Deer", "Tinkerbell", 8, "Herbivore", "Northern Trail", 2, "Female", "Delicate roots and leaves", "Loud Noises")
                                ];
   selectedAnimal: null;
+  newAnimalClicked: boolean = false;
 
   editAnimal(clickedAnimal) {
     this.selectedAnimal = clickedAnimal;
@@ -36,6 +41,18 @@ export class AppComponent {
 
   finishedEditing() {
     this.selectedAnimal = null;
+  }
+
+  showNewAnimalForm() {
+    this.newAnimalClicked = true;
+  }
+
+  addAnimal(newAnimalFromChild: Animal) {
+    this.masterAnimalList.push(newAnimalFromChild);
+  }
+
+  hideNewAnimalForm() {
+    this.newAnimalClicked = false;
   }
 
 
