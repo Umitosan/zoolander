@@ -27,6 +27,8 @@ The local zoo is a mess due to mismanagement.  Luckily, they have me to help by 
 |the app allows filtering of 'all animals'|the user selects 'all animals' from the dropdown|the list of displayed animals changes to show all animals in the database|
 |the app allows filtering of 'young animals'|the user selects 'young animals' from the dropdown|the list of displayed animals changes to only animals that are less than 2 years of age|
 |the app allows filtering of 'mature animals'|he user selects 'mature animals' from the dropdown|the list of displayed animals changes to only animals that are more than 2 years of age|
+|the app allows filtering by diet|the user selects 'omnivores' from the dropdown|the list shows only animals that are omnivores|
+|the app includes an images for each animal|the user creates a new animal and includes a url, then saves the new animal|the list of animals on the homepage shows the new image added|
 
 ## Prerequisites
 
