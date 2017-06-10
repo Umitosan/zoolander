@@ -28,6 +28,8 @@ import { Animal } from './animal.model';
           <input name="animalLikes" [(ngModel)]="childSelectedAnimal.likes"><br>
           <label>Dislikes: </label>
           <input name="animalDislikes" [(ngModel)]="childSelectedAnimal.dislikes"><br>
+          <label>ImageURL: </label>
+          <input name="animalImage" [(ngModel)]="childSelectedAnimal.imageurl"><br>
 
           <button class="btn btn-success btn-sm" (click)="doneEditingButtonClicked()">Save changes</button>
         </div>

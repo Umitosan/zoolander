@@ -16,7 +16,9 @@ import { Animal } from './animal.model';
         <label>Sex:</label> <input #newSex><br>
         <label>Likes:</label> <input #newLikes><br>
         <label>Dislikes:</label> <input #newDislikes><br>
-        <button class="btn btn-success btn-sm" (click)="doneWithNewAnimalFormClicked()" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value='';">Save new animal</button>
+        <label>ImageURL:</label> <input #newURL><br>
+
+        <button class="btn btn-success btn-sm" (click)="doneWithNewAnimalFormClicked()" (click)="submitForm(newSpecies.value, newName.value, newAge.value, newDiet.value, newLocation.value, newCaretakers.value, newSex.value, newLikes.value, newDislikes.value, newURL.value); newSpecies.value=''; newName.value=''; newAge.value=''; newDiet.value=''; newLocation.value=''; newCaretakers.value=''; newSex.value=''; newLikes.value=''; newDislikes.value=''; newURL.value=''; ">Save new animal</button>
       </div>
     </div>
   `
@@ -27,8 +29,8 @@ export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
   @Output() doneWithNewAnimalFormClickedSender = new EventEmitter();
 
-  submitForm(species: string, name: string, age: number,diet: string, location: string, caretakers: number, sex: string, likes: string, dislikes: string ) {
-    var newAnimalToAdd: Animal = new Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes);
+  submitForm(species: string, name: string, age: number,diet: string, location: string, caretakers: number, sex: string, likes: string, dislikes: string, imageurl: string) {
+    var newAnimalToAdd: Animal = new Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes, imageurl);
     this.newAnimalSender.emit(newAnimalToAdd);
   }
 

@@ -1,6 +1,5 @@
 body {
   background-image: url("http://media.designerpages.com/3rings/wp-content/uploads/2013/05/animal11.jpg");
-  // background-image: url("https://image.shutterstock.com/z/stock-vector-cute-cartoon-crocodile-seamless-pattern-animal-background-alligator-tile-endless-wallpaper-for-345452978.jpg");
   background-repeat: repeat;
   z-index: -10;
 }
@@ -34,9 +33,19 @@ body {
   background-color: white;
   width: 90%;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 #selects {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+img {
+  max-height: 170px;
+  max-width: 170px;
+}
+
+.btn:hover {
+  color: black;
+  font-weight: bolder;
 }
